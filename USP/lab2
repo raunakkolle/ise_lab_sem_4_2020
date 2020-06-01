@@ -1,0 +1,19 @@
+#!/bin/csh
+set filename = $0
+
+set string = "1234567890"
+set nchar = `echo $string | awk '{print length($0)}'` 
+set substr = `echo $string | awk '{print substr($0,2,5)}'` 
+
+echo "string is :" $string
+echo "number of character is string : " $nchar
+echo "substring is :" $substr
+
+# Alternate method using cut command
+# https://www.computerhope.com/unix/ucut.htm
+
+set substrcut = `echo $string | cut -c 1-5` 
+#set substr = `echo $string | awk '{print substr($0,2,5)}'` 
+echo "substring is :" $substrcut
+echo "no of lines : " 
+wc -l $filename
