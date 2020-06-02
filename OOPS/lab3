@@ -1,0 +1,89 @@
+import java.util.*;
+import java.util.Scanner;
+
+class Circle
+{
+ public double radius;
+ public double color;
+ 
+ double getRadius()
+ {
+   return radius;
+ }
+ double getArea()
+  {
+   return (Math.PI*radius*radius);
+  }
+ 
+ Circle(double r)
+{
+  radius=r;
+}
+Circle(double r,double c)
+{
+ radius=r;
+ color=c;
+ }
+}
+ class Cylinder extends Circle{
+ double height;
+ double getHeight()
+ {
+ return height;
+ }
+ double getVolume()
+ {
+  double v;
+   v=Math.PI*radius*radius*height;
+   System.out.println("Volume is"+v);
+   return v;
+}
+ double getArea()
+ {
+   double a;
+   a=2*Math.PI*radius*height+2*Math.PI*radius*radius;
+   System.out.println("Area is"+a);
+   return a;
+  }
+Cylinder(double h,double r)
+{
+ super(r);
+ height=h;
+
+ }
+ Cylinder(double h,double r,double c)
+{
+  super(r,c);
+ height=h;
+
+ }
+}
+ 
+ class Main{
+ public static void main(String[] args){
+
+Scanner obj=new Scanner(System.in);
+double r1,r2,h1,h2,c1,c2;
+System.out.println("Enter radius color and height of first cylinder");
+r1=obj.nextDouble();
+c1=obj.nextDouble();
+h1=obj.nextDouble();
+System.out.println("Enter radius color and height of second cylinder");
+r2=obj.nextDouble();
+c2=obj.nextDouble();
+h2=obj.nextDouble();
+Cylinder cy1=new Cylinder(r1,c1,h2);
+Cylinder cy2=new Cylinder(r2,c2,h2);
+double a1,a2,b1,b2;
+a1=cy1.getArea();
+a2=cy2.getArea();
+b1=cy1.getVolume();
+b2=cy2.getVolume();
+
+ if(a1==a2 && b1==b2 && cy1.color==cy2.color)
+{
+ System.out.println("Cylinders are same");
+}
+ else System.out.println("Not same");
+ }
+ }
